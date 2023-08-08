@@ -19,7 +19,7 @@ def predict():
     image_path = "./images/prediction_image.png"
     imageFile.save(image_path)
 
-    predict_svm_glcm, acc_svm_glcm = process.glcm_predict()
+    predict_svm_glcm, acc_svm_glcm, glcm_feature = process.glcm_predict()
     predict_svm, acc_svm = process.svm_predict()
 
     return render_template('index.html', 
@@ -27,6 +27,7 @@ def predict():
                            accuracy_svm_glcm=acc_svm_glcm,
                            prediction_svm = predict_svm,
                            accuracy_svm = acc_svm,
+                           glcm_feature = glcm_feature,
                            uploaded_image="prediction_image_show.png", 
                            grayscale_image="grayscale_image.png")
 

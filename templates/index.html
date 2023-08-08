@@ -61,7 +61,12 @@
                         Masukkan gambar
                     </p>
                 </div>
-            {% endif %} 
+            {% endif %}
+
+            {% if glcm_feature %}
+                <p class="text-center fw-bold">Details</p>
+                <p class="text-center mx-4 p-5">{{glcm_feature}}</p>
+            {% endif %}
         </div>
     </div>
 

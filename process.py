@@ -135,8 +135,10 @@ def glcm_predict():
     predict_svm_glcm = ''.join(predict_svm_glcm)
 
     print(acc_svm_glcm)
+    listToStr = ' | '.join([str(elem) for elem in glcm_feature[0]])
+    print(listToStr)
 
-    return predict_svm_glcm, acc_svm_glcm
+    return predict_svm_glcm, acc_svm_glcm, listToStr
 
 # SVM ===========================================================================
 
