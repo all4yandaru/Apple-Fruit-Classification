@@ -24,6 +24,8 @@ SVM_WG_FILE_PICKLE = "svm_with_glcm_model.pkl"
 SVM_WOG_FILE_PICKLE = "svm_without_glcm_model.pkl"
 SVM_WG_NOBG_FILE_PICKLE = "svm_with_glcm_nobg_model.pkl"
 SVM_WOG_NOBG_FILE_PICKLE = "svm_without_glcm_nobg_model.pkl"
+SVM_WG_NOBG_REDUCED_FILE_PICKLE = "svm_with_glcm_nobg_reduced_model.pkl"
+SVM_WOG_NOBG_REDUCED_FILE_PICKLE = "svm_without_glcm_nobg_reduced_model.pkl"
 SVM_WOG_SCALER_FILE_PICKLE = "svm_without_glcm_scaler.pkl"
 SVM_WOG_NOBG_SCALER_FILE_PICKLE = "svm_without_glcm_nobg_scaler.pkl"
 SVM_WGP_FILE_PICKLE = "svm_with_glcm_plt_model.pkl"
@@ -127,7 +129,7 @@ def glcm_predict():
     cv2.imwrite(image_show_path, image_show)
 
     # load model
-    model_svm_glcm = load_file_pickle(SVM_WG_NOBG_FILE_PICKLE)
+    model_svm_glcm = load_file_pickle(SVM_WG_NOBG_REDUCED_FILE_PICKLE)
 
     # predicting
     predict_svm_glcm = model_svm_glcm.predict(glcm_feature)
@@ -156,7 +158,7 @@ def svm_predict():
 
     # load model
     scaler = load_file_pickle(SVM_WOG_SCALER_FILE_PICKLE)
-    model_svm = load_file_pickle(SVM_WOG_NOBG_FILE_PICKLE)
+    model_svm = load_file_pickle(SVM_WOG_NOBG_REDUCED_FILE_PICKLE)
 
     # predicting
     img_resize_flatten_scale_predict = scaler.transform(img_resize_flatten_predict)
